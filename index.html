@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Faria Tasnim — Education Graduate, Teacher &amp; Photographer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chalk-bg:#0F2A4A;
+    --chalk-bg-2:#173B63;
+    --paper:#FFFFFF;
+    --paper-line:#DDE3EC;
+    --ink:#1A2333;
+    --chalk:#FFFFFF;
+    --marigold:#5C82B8;
+    --marigold-dim:#2F4A73;
+    --muted:#5B6472;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{margin:0;background:var(--paper);color:var(--ink);}
+  body{font-family:"IBM Plex Sans",sans-serif;line-height:1.55;}
+  h1,h2,h3{font-family:"Fraunces",serif;font-weight:600;margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* HERO — chalkboard */
+  .hero{background:radial-gradient(ellipse at 20% -10%, var(--chalk-bg-2), var(--chalk-bg) 65%);color:var(--chalk);padding:76px 0 68px;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px, transparent 1px);background-size:4px 4px;pointer-events:none;}
+  .eyebrow{font-size:.85rem;color:#9FB4D1;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;}
+  .hero h1{font-size:clamp(2.4rem,7vw,3.6rem);line-height:1.05;letter-spacing:-.01em;}
+  .hero h1 span{display:block;}
+  .underline{width:150px;height:10px;margin-top:18px;}
+  .hero p.role{margin-top:20px;font-size:1.15rem;color:#C7D5E8;font-family:"Fraunces",serif;font-style:italic;font-weight:500;max-width:34ch;}
+  .hero-top{display:flex;align-items:center;gap:22px;}
+  .hero-photo{width:132px;height:132px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid rgba(255,255,255,.35);background:#1F3E64;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-photo.no-photo{display:flex;align-items:center;justify-content:center;}
+  .hero-photo.no-photo::after{content:"FT";font-family:"Fraunces",serif;color:#DCE6F2;font-size:2.1rem;}
+  .hero-photo.no-photo img{display:none;}
+
+  section{padding:54px 0;border-bottom:1px solid var(--paper-line);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{font-family:"Fraunces",serif;font-style:italic;color:var(--marigold-dim);font-size:1.05rem;margin-bottom:6px;}
+  h2.title{font-size:1.7rem;margin-bottom:22px;}
+
+  .summary p{font-size:1.08rem;max-width:62ch;color:#33392F;}
+
+  /* Timeline */
+  .tl{position:relative;padding-left:26px;border-left:2px solid var(--paper-line);}
+  .tl-item{position:relative;padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:"";position:absolute;left:-32px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--marigold);border:2px solid var(--paper);}
+  .tl-date{font-size:.85rem;color:var(--muted);font-weight:500;margin-bottom:2px;}
+  .tl-role{font-size:1.1rem;font-weight:600;font-family:"Fraunces",serif;}
+  .tl-org{color:var(--muted);font-size:.95rem;margin-bottom:8px;}
+  .tl-item ul{margin:0;padding-left:18px;}
+  .tl-item li{margin-bottom:5px;font-size:.97rem;}
+
+  /* Education ledger */
+  .ledger{width:100%;border-collapse:collapse;}
+  .ledger tr{border-bottom:1px solid var(--paper-line);}
+  .ledger tr:last-child{border-bottom:none;}
+  .ledger td{padding:16px 0;vertical-align:top;}
+  .ledger td.deg{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;}
+  .ledger td.school{color:var(--muted);font-size:.92rem;margin-top:2px;}
+  .ledger td.score{text-align:right;font-weight:600;color:var(--marigold-dim);white-space:nowrap;padding-left:10px;}
+  .ledger td.year{text-align:right;color:var(--muted);font-size:.85rem;white-space:nowrap;width:90px;}
+
+  /* Skills / languages */
+  .tags{display:flex;flex-wrap:wrap;gap:10px;}
+  .tag{border:1px solid var(--paper-line);background:#F5F7FA;padding:8px 14px;border-radius:3px;font-size:.9rem;color:var(--marigold-dim);}
+  .lang-row{display:flex;gap:34px;margin-top:6px;}
+  .lang{}
+  .lang b{font-family:"Fraunces",serif;font-size:1.05rem;display:block;}
+  .lang span{color:var(--muted);font-size:.88rem;}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:.85rem;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero h1{animation:rise .7s ease both;}
+    .underline path{stroke-dasharray:200;stroke-dashoffset:200;animation:draw 1s .4s ease forwards;}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  @media (max-width:520px){
+    .hero{padding:56px 0 48px;}
+    .contact-row{flex-direction:column;gap:8px;}
+    .lang-row{gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px;margin-right:6px;"><path d="M12 3L2 8l10 5 8-4v6M6 10v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" stroke="#9FB4D1" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>Portfolio</div>
+    <div class="hero-top">
+      <div class="hero-photo"><img src="faria.jpeg" alt="Faria Tasnim" onerror="this.parentElement.classList.add('no-photo')"></div>
+      <div>
+        <h1><span>Faria</span><span>Tasnim</span></h1>
+      </div>
+    </div>
+    <p class="role">Education graduate. Teacher. Photographer.</p>
+  </div>
+</div>
+
+<section class="summary">
+  <div class="wrap">
+    <div class="kicker">About</div>
+    <h2 class="title">Fieldwork meets classroom</h2>
+    <p>Education graduate, teacher, and photographer. Hands-on experience in data enumeration and teaching internships — comfortable with field survey tools, structured interviews, and careful data verification, as well as lesson planning, classroom management, and student support. Behind the camera, drawn to the same eye for detail and quiet observation that fieldwork demands.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Experience</div>
+    <h2 class="title">Where the work has happened</h2>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-date">December 2025</div>
+        <div class="tl-role">Data Enumerator</div>
+        <div class="tl-org">A national human-rights research study</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">November 2025</div>
+        <div class="tl-role">Data Enumerator</div>
+        <div class="tl-org">A UNICEF-supported study on primary education</div>
+        <ul>
+          <li>Collected qualitative and quantitative data through structured interviews and survey instruments</li>
+          <li>Ensured accuracy, consistency, and integrity of collected data through careful documentation and verification</li>
+          <li>Collaborated with field supervisors to maintain quality assurance and adhere to project timelines</li>
+          <li>Followed established research protocols and ethical guidelines throughout data collection</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Nov 2024 – Feb 2025</div>
+        <div class="tl-role">Intern Teacher</div>
+        <div class="tl-org">A university-affiliated school</div>
+        <ul>
+          <li>Assisted in classroom teaching, lesson planning, and student assessment under supervision</li>
+          <li>Supported student engagement, classroom management, and basic academic activities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Education</div>
+    <h2 class="title">Academic record</h2>
+    <table class="ledger">
+      <tr>
+        <td>
+          <div class="deg">Bachelor of Education</div>
+          <div class="school">IER, University of Dhaka</div>
+        </td>
+        <td class="year">2022–2025</td>
+        <td class="score">CGPA 3.72</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="deg">HSC, Science</div>
+        </td>
+        <td class="year">2020</td>
+        <td class="score">GPA 5.00</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="deg">SSC, Science</div>
+        </td>
+        <td class="year">2018</td>
+        <td class="score">GPA 5.00</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Skills</div>
+    <h2 class="title">What I bring to a project</h2>
+    <div class="tags">
+      <span class="tag">Data collection &amp; documentation</span>
+      <span class="tag">Communication &amp; interpersonal skills</span>
+      <span class="tag">Classroom assistance &amp; student engagement</span>
+      <span class="tag">Analytical &amp; observation skills</span>
+      <span class="tag">Teamwork &amp; time management</span>
+      <span class="tag">Photography</span>
+    </div>
+    <div class="lang-row">
+      <div class="lang"><b>Bangla</b><span>Native</span></div>
+      <div class="lang"><b>English</b><span>Proficient</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Faria Tasnim · University of Dhaka</footer>
+
+</body>
+</html>
